@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { RouterModule,Routes} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,6 +12,8 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogViewComponent } from './blog-view/blog-view.component';
 import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { BlogService } from './blog.service';
+import { BlogHttpService } from './blog-http.service';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { BlogService } from './blog.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         {path:'home',component:HomeComponent},
@@ -36,7 +40,7 @@ import { BlogService } from './blog.service';
       ]
     )
   ],
-  providers: [BlogService],
+  providers: [BlogService,BlogHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
