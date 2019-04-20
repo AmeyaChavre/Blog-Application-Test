@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { RouterModule,Routes} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppComponent } from './app.component';
@@ -28,6 +33,9 @@ import { BlogHttpService } from './blog-http.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot(
       [
         {path:'home',component:HomeComponent},

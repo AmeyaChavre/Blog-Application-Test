@@ -35,4 +35,21 @@ export class BlogHttpService {
     return myResponse;
   }
 
+  public createBlog(blogData):any {
+    let myResponse = this._http.post(this.baseUrl + '/create' + '?authToken=' + this.authToken, blogData);
+    return myResponse;
+  }
+
+  public deleteBlog(blogId):any {
+    let data = {};
+    let myResponse = this._http.post(this.baseUrl + '/' + blogId + '?authToken=' + this.authToken, data);
+    return myResponse;
+  }
+
+  public editBlog(blogId, blogData):any {
+    let myResponse = this._http.put(this.baseUrl + '/' + blogId + '/edit' + '?authToken=' + this.authToken, blogData);
+    return myResponse;
+  }
+
 }
+
